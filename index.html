@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AnômaloHub · @diegoknebel_ · Relatório Instagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#030201;--bg2:#030201;--bg3:#0c0b04;
+  --pink:#efc137;--purple:#c9960a;--teal:#efc137;--gold:#efc137;
+  --card:#0c0b04;--border:rgba(239,193,55,0.12);
+  --text:#f8fafc;--muted:#7a7060;
+  --font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;
+}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+.bg-grid{position:fixed;inset:0;background-image:linear-gradient(rgba(239,193,55,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(239,193,55,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+.bg-glow{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,150,10,0.12) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none;z-index:0;animation:glowPulse 8s ease-in-out infinite}
+.bg-glow2{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(239,193,55,0.1) 0%,transparent 70%);bottom:-80px;left:180px;pointer-events:none;z-index:0;animation:glowPulse 6s ease-in-out infinite reverse}
+@keyframes glowPulse{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.shell{display:flex;height:100vh;position:relative;z-index:1}
+.sidebar{width:220px;flex-shrink:0;background:#030201;border-right:1px solid var(--border);display:flex;flex-direction:column;padding:24px 0;backdrop-filter:blur(20px)}
+.logo{padding:0 20px 24px;border-bottom:1px solid var(--border)}
+.logo-mark{display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;font-family:var(--font-head)}
+.logo-name{font-family:var(--font-head);font-weight:700;font-size:15px;color:#fff;letter-spacing:-0.3px}
+.logo-badge{font-size:9px;background:rgba(239,193,55,0.2);color:var(--pink);padding:1px 6px;border-radius:20px;border:1px solid rgba(239,193,55,0.3);margin-left:auto;letter-spacing:.5px}
+.nav{padding:16px 12px;flex:1}
+.nav-section{font-size:9px;color:var(--muted);letter-spacing:.1em;padding:0 8px;margin:16px 0 6px;text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 8px;border-radius:8px;cursor:pointer;font-size:13px;color:var(--muted);transition:all .2s;margin-bottom:2px;position:relative;user-select:none}
+.nav-item:hover{background:rgba(255,255,255,0.04);color:var(--text)}
+.nav-item.active{background:rgba(239,193,55,0.1);color:#efc137}
+.nav-item.active::before{content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:3px;height:20px;background:#efc137;border-radius:0 3px 3px 0}
+.nav-dot{width:16px;height:16px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.nav-item.active .nav-dot{background:rgba(239,193,55,0.25);color:var(--pink)}
+.sidebar-user{padding:16px 20px;border-top:1px solid var(--border)}
+.user-row{display:flex;align-items:center;gap:10px}
+.user-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;font-family:var(--font-head);flex-shrink:0}
+.user-name{font-size:12px;font-weight:500;color:var(--text)}
+.user-handle{font-size:10px;color:var(--muted)}
+.user-status{margin-left:auto;width:7px;height:7px;border-radius:50%;background:#efc137;box-shadow:0 0 6px #efc137}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{padding:16px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:16px;background:rgba(3,2,1,0.9);backdrop-filter:blur(20px)}
+.topbar-title{font-family:var(--font-head);font-size:16px;font-weight:700;color:#fff;flex:1}
+.period-badge{font-size:11px;background:rgba(201,150,10,0.12);color:var(--purple);padding:5px 12px;border-radius:20px;border:1px solid rgba(201,150,10,0.25);display:flex;align-items:center;gap:6px}
+.period-dot{width:6px;height:6px;border-radius:50%;background:#efc137;box-shadow:0 0 8px rgba(239,193,55,0.6);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.ai-badge{font-size:11px;background:rgba(239,193,55,0.1);color:var(--pink);padding:5px 12px;border-radius:20px;border:1px solid rgba(239,193,55,0.25);display:flex;align-items:center;gap:6px}
+.content{flex:1;overflow-y:auto;padding:24px 28px;scroll-behavior:smooth}
+.content::-webkit-scrollbar{width:4px}
+.content::-webkit-scrollbar-track{background:transparent}
+.content::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:4px}
+.view{display:none;animation:fadeUp .4s ease}
+.view.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;cursor:default}
+.kpi-card:hover{border-color:rgba(239,193,55,0.3);transform:translateY(-2px)}
+.kpi-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(239,193,55,0.04),transparent);pointer-events:none}
+.kpi-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.kpi-icon{width:18px;height:18px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:9px}
+.kpi-val{font-family:var(--font-head);font-size:30px;font-weight:800;color:#fff;line-height:1;letter-spacing:-1px;margin-bottom:8px}
+.kpi-sub{font-size:11px;display:flex;align-items:center;gap:5px}
+.up{color:var(--teal)}.neutral{color:var(--muted)}
+.kpi-glow{position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:0.15;filter:blur(20px)}
+.charts-row{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-bottom:20px}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.card-title{font-family:var(--font-head);font-size:13px;font-weight:600;color:#fff}
+.card-sub{font-size:11px;color:var(--muted)}
+.chip{font-size:10px;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid var(--border)}
+.chip.pink{background:rgba(239,193,55,0.1);color:var(--pink);border-color:rgba(239,193,55,0.2)}
+.fmt-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.fmt-label{font-size:12px;color:var(--text);width:56px;flex-shrink:0}
+.fmt-track{flex:1;height:7px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden}
+.fmt-fill{height:100%;border-radius:4px;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
+.fmt-pct{font-size:12px;font-weight:500;width:38px;text-align:right;flex-shrink:0}
+.posts-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:20px}
+.post-row{display:flex;align-items:center;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.post-row:last-child{border-bottom:none;padding-bottom:0}
+.post-rank{font-family:var(--font-head);font-size:18px;font-weight:800;color:rgba(255,255,255,0.12);width:28px;flex-shrink:0;text-align:center}
+.post-bar-wrap{flex:1;min-width:0}
+.post-title{font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}
+.post-bar-bg{height:4px;background:rgba(255,255,255,0.05);border-radius:2px;overflow:hidden}
+.post-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--pink),var(--purple));transition:width 1.4s cubic-bezier(.25,.46,.45,.94)}
+.post-views{font-family:var(--font-head);font-size:14px;font-weight:700;color:#fff;flex-shrink:0;min-width:52px;text-align:right}
+.post-tag{font-size:9px;padding:2px 7px;border-radius:20px;flex-shrink:0;margin-left:4px}
+.tag-reel{background:rgba(239,193,55,0.15);color:var(--pink);border:1px solid rgba(239,193,55,0.25)}
+.tag-story{background:rgba(201,150,10,0.15);color:var(--purple);border:1px solid rgba(201,150,10,0.25)}
+.tag-post{background:rgba(239,193,55,0.1);color:var(--teal);border:1px solid rgba(239,193,55,0.2)}
+.bottom-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:20px}
+.stat-block{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.stat-big{font-family:var(--font-head);font-size:40px;font-weight:800;line-height:1;letter-spacing:-2px;margin:10px 0 6px}
+.stat-label{font-size:11px;color:var(--muted)}
+.split-row{display:flex;gap:6px;margin-top:14px}
+.split-seg{border-radius:4px;height:8px;transition:all .3s}
+.insights-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:20px}
+.insight-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.insight-item:last-child{border-bottom:none;padding-bottom:0}
+.insight-num{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:12px;font-weight:800;flex-shrink:0;margin-top:1px}
+.insight-title{font-size:13px;font-weight:500;color:#fff;margin-bottom:4px}
+.insight-text{font-size:12px;color:var(--muted);line-height:1.6}
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.compare-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 20px;text-align:center;transition:all .25s;cursor:pointer}
+.compare-card:hover{border-color:rgba(239,193,55,0.3);transform:translateY(-3px)}
+.compare-card.featured{border-color:rgba(239,193,55,0.5);background:linear-gradient(135deg,rgba(239,193,55,0.08),rgba(201,150,10,0.06))}
+.cc-period{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.cc-views{font-family:var(--font-head);font-size:34px;font-weight:800;letter-spacing:-1.5px;margin-bottom:4px}
+.cc-sub{font-size:11px;color:var(--muted)}
+.cc-badge{font-size:10px;padding:3px 10px;border-radius:20px;margin-top:10px;display:inline-block}
+.growth-hero{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;display:flex;align-items:center;gap:32px;margin-bottom:20px}
+.g-main{flex:1}
+.g-num{font-family:var(--font-head);font-size:72px;font-weight:800;letter-spacing:-4px;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.g-label{font-size:14px;color:var(--muted);margin-top:6px}
+.g-change{font-size:13px;color:var(--teal);margin-top:8px}
+.g-right{display:grid;grid-template-columns:1fr 1fr;gap:14px;min-width:320px}
+.g-stat{background:rgba(255,255,255,0.03);border-radius:10px;padding:16px;border:1px solid var(--border)}
+.g-stat-val{font-family:var(--font-head);font-size:24px;font-weight:700;margin-bottom:3px}
+.g-stat-lbl{font-size:11px;color:var(--muted)}
+canvas{display:block}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">
+        <div class="logo-icon">P</div>
+        <div><div class="logo-name">Pulse<span style="color:var(--pink)">.</span></div></div>
+        <div class="logo-badge">MVP</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Analytics</div>
+      <div class="nav-item active" onclick="setView('overview',this)"><div class="nav-dot">◈</div> Visão Geral</div>
+      <div class="nav-item" onclick="setView('content',this)"><div class="nav-dot">▦</div> Conteúdo</div>
+      <div class="nav-item" onclick="setView('growth',this)"><div class="nav-dot">↗</div> Crescimento</div>
+      <div class="nav-item" onclick="setView('compare',this)"><div class="nav-dot">⊞</div> Comparativo</div>
+      <div class="nav-section">Insights</div>
+      <div class="nav-item" onclick="setView('insights',this)"><div class="nav-dot">✦</div> IA Insights</div>
+    </nav>
+    <div class="sidebar-user">
+      <div class="user-row">
+        <div class="user-av" style="background:#0c0b04;border:1px solid rgba(239,193,55,0.3)"><span style="color:#efc137;font-size:11px;font-weight:700">DK</span></div>
+        <div><div class="user-name">Diego Knebel</div><div class="user-handle">@diegoknebel_</div></div>
+        <div class="user-status"></div>
+      </div>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:10px;flex:1"><img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQ4BDgDASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAgJBgcCBAUBA//EAEAQAQABAwMCAggEAwYEBwEAAAABAgMEBQYRByESgQgJEyIxQXGRFDJRYUKCoRUWQ1KSsSMkosEXJTNTYnLR4f/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwCGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADJ9rdP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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//2Q==" style="width:22px;height:22px;object-fit:contain;filter:invert(82%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(103%)" alt="Anômalo"><div style="display:flex;flex-direction:column"><div class="topbar-title" id="topbar-title" style="font-size:14px">Visão Geral</div></div></div>
+      <div class="period-badge"><div class="period-dot"></div> Fev 15 – Mar 16, 2026</div>
+      <div class="ai-badge">✦ IA Ativa</div>
+    </div>
+    <div class="content">
+
+      <!-- OVERVIEW -->
+      <div class="view active" id="view-overview">
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-lbl"><div class="kpi-icon" style="background:rgba(239,193,55,0.15);color:var(--pink)">◉</div>Visualizações</div>
+            <div class="kpi-val counter" data-target="46337">0</div>
+            <div class="kpi-sub up">▲ +73,9% vs mês anterior</div>
+            <div class="kpi-glow" style="background:var(--pink)"></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-lbl"><div class="kpi-icon" style="background:rgba(201,150,10,0.15);color:var(--purple)">◎</div>Contas Alcançadas</div>
+            <div class="kpi-val counter" data-target="9871">0</div>
+            <div class="kpi-sub up">▲ +45,8% de crescimento</div>
+            <div class="kpi-glow" style="background:var(--purple)"></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-lbl"><div class="kpi-icon" style="background:rgba(239,193,55,0.12);color:var(--teal)">⬡</div>Interações</div>
+            <div class="kpi-val counter" data-target="629">0</div>
+            <div class="kpi-sub neutral">91,3% de seguidores</div>
+            <div class="kpi-glow" style="background:var(--teal)"></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-lbl"><div class="kpi-icon" style="background:rgba(240,200,40,0.12);color:#efc137">◈</div>Seguidores</div>
+            <div class="kpi-val counter" data-target="8806">0</div>
+            <div class="kpi-sub up">▲ +37 no período</div>
+            <div class="kpi-glow" style="background:#efc137"></div>
+          </div>
+        </div>
+        <div class="charts-row">
+          <div class="chart-card">
+            <div class="card-head">
+              <div><div class="card-title">Visualizações · evolução</div><div class="card-sub" style="margin-top:3px">Acumulado por período</div></div>
+              <div class="chip pink">30 dias em destaque</div>
+            </div>
+            <div style="position:relative;height:200px"><canvas id="viewsChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="card-head"><div class="card-title">Distribuição por formato</div></div>
+            <div class="fmt-row"><div class="fmt-label">Stories</div><div class="fmt-track"><div class="fmt-fill" style="width:0%;background:linear-gradient(90deg,var(--pink),#ffd966)" data-w="59.5"></div></div><div class="fmt-pct" style="color:var(--pink)">59,5%</div></div>
+            <div class="fmt-row"><div class="fmt-label">Reels</div><div class="fmt-track"><div class="fmt-fill" style="width:0%;background:linear-gradient(90deg,var(--purple),#e0a800)" data-w="24.2"></div></div><div class="fmt-pct" style="color:var(--purple)">24,2%</div></div>
+            <div class="fmt-row"><div class="fmt-label">Posts</div><div class="fmt-track"><div class="fmt-fill" style="width:0%;background:linear-gradient(90deg,var(--teal),#e0e0e0)" data-w="16.3"></div></div><div class="fmt-pct" style="color:var(--teal)">16,3%</div></div>
+            <div style="height:1px;background:var(--border);margin:14px 0"></div>
+            <div class="card-title" style="margin-bottom:10px;font-size:12px">Interações por formato</div>
+            <div class="fmt-row"><div class="fmt-label">Stories</div><div class="fmt-track"><div class="fmt-fill" style="width:0%;background:linear-gradient(90deg,var(--pink),#ffd966)" data-w="59.6"></div></div><div class="fmt-pct" style="color:var(--pink)">59,6%</div></div>
+            <div class="fmt-row"><div class="fmt-label">Reels</div><div class="fmt-track"><div class="fmt-fill" style="width:0%;background:linear-gradient(90deg,var(--purple),#e0a800)" data-w="30.3"></div></div><div class="fmt-pct" style="color:var(--purple)">30,3%</div></div>
+            <div class="fmt-row"><div class="fmt-label">Posts</div><div class="fmt-track"><div class="fmt-fill" style="width:0%;background:linear-gradient(90deg,var(--teal),#e0e0e0)" data-w="10.1"></div></div><div class="fmt-pct" style="color:var(--teal)">10,1%</div></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
+          <div class="stat-block"><div class="stat-label">Audiência de seguidores</div><div class="stat-big" style="color:var(--pink)">65,4%</div><div style="font-size:11px;color:var(--muted)">34,6% não-seguidores</div><div class="split-row"><div class="split-seg" style="width:65.4%;background:var(--pink)"></div><div class="split-seg" style="flex:1;background:rgba(201,150,10,0.4)"></div></div></div>
+          <div class="stat-block"><div class="stat-label">Interações de seguidores</div><div class="stat-big" style="color:var(--purple)">91,3%</div><div style="font-size:11px;color:var(--muted)">8,7% não-seguidores</div><div class="split-row"><div class="split-seg" style="width:91.3%;background:var(--purple)"></div><div class="split-seg" style="flex:1;background:rgba(255,255,255,0.08)"></div></div></div>
+          <div class="stat-block"><div class="stat-label">Origem de anúncios</div><div class="stat-big" style="color:var(--teal)">3,9%</div><div style="font-size:11px;color:var(--muted)">96,1% orgânico</div><div class="split-row"><div class="split-seg" style="width:3.9%;background:var(--teal)"></div><div class="split-seg" style="flex:1;background:rgba(255,255,255,0.08)"></div></div></div>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <div class="view" id="view-content">
+        <div class="posts-card">
+          <div class="card-head" style="margin-bottom:14px">
+            <div><div class="card-title">Top posts · últimos 30 dias</div><div class="card-sub" style="margin-top:3px">Ordenado por visualizações</div></div>
+            <div class="chip">9 posts publicados</div>
+          </div>
+          <div id="posts-list"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="chart-card">
+            <div class="card-head"><div class="card-title">Engajamento · tipos</div></div>
+            <div style="position:relative;height:220px"><canvas id="engChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="card-head"><div class="card-title">Performance por tipo de conteúdo</div></div>
+            <div style="padding:8px 0">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:10px"><div style="width:8px;height:8px;border-radius:50%;background:var(--pink)"></div><span style="font-size:13px">Stories</span></div><div style="text-align:right"><div style="font-size:14px;font-weight:600;font-family:var(--font-head);color:var(--pink)">59,6%</div><div style="font-size:10px;color:var(--muted)">das interações</div></div></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)"><div style="display:flex;align-items:center;gap:10px"><div style="width:8px;height:8px;border-radius:50%;background:var(--purple)"></div><span style="font-size:13px">Reels</span></div><div style="text-align:right"><div style="font-size:14px;font-weight:600;font-family:var(--font-head);color:var(--purple)">30,3%</div><div style="font-size:10px;color:var(--muted)">das interações</div></div></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0"><div style="display:flex;align-items:center;gap:10px"><div style="width:8px;height:8px;border-radius:50%;background:var(--teal)"></div><span style="font-size:13px">Posts</span></div><div style="text-align:right"><div style="font-size:14px;font-weight:600;font-family:var(--font-head);color:var(--teal)">10,1%</div><div style="font-size:10px;color:var(--muted)">das interações</div></div></div>
+            </div>
+            <div style="background:rgba(239,193,55,0.07);border:1px solid rgba(239,193,55,0.2);border-radius:10px;padding:12px;margin-top:8px"><div style="font-size:10px;color:var(--pink);font-weight:600;margin-bottom:4px;letter-spacing:.05em">DESTAQUE DO MÊS</div><div style="font-size:12px;color:var(--text)">Reel "Como tomamos as melhores decisões" — <strong style="color:var(--pink)">5.785 views</strong>, 3,5× acima da média</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GROWTH -->
+      <div class="view" id="view-growth">
+        <div class="growth-hero">
+          <div class="g-main">
+            <div class="g-num counter" data-target="8806">0</div>
+            <div class="g-label">Seguidores totais em Mar 16, 2026</div>
+            <div class="g-change">▲ +0,4% vs 14 de Fevereiro · crescimento orgânico</div>
+          </div>
+          <div class="g-right">
+            <div class="g-stat"><div class="g-stat-val" style="color:var(--teal)">+103</div><div class="g-stat-lbl">Novos seguidores</div></div>
+            <div class="g-stat"><div class="g-stat-val" style="color:var(--pink)">66</div><div class="g-stat-lbl">Unfollows</div></div>
+            <div class="g-stat"><div class="g-stat-val" style="color:var(--purple)">+37</div><div class="g-stat-lbl">Crescimento líquido</div></div>
+            <div class="g-stat"><div class="g-stat-val" style="color:#efc137">64%</div><div class="g-stat-lbl">Taxa de retenção</div></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:14px">
+          <div class="chart-card">
+            <div class="card-head"><div class="card-title">Crescimento líquido diário · últimos 30 dias</div></div>
+            <div style="position:relative;height:200px"><canvas id="growthChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="card-head"><div class="card-title">Projeção de crescimento</div></div>
+            <div style="padding:6px 0">
+              <div style="font-size:11px;color:var(--muted);margin-bottom:12px">Baseado na tendência atual de +37/mês</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border)"><span style="font-size:12px;color:var(--muted)">Abr 2026</span><span style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--teal)">~8.843</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border)"><span style="font-size:12px;color:var(--muted)">Mai 2026</span><span style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--teal)">~8.880</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:rgba(239,193,55,0.06);border-radius:8px;border:1px solid rgba(239,193,55,0.25)"><span style="font-size:12px;color:var(--pink)">Meta (2x Reels)</span><span style="font-family:var(--font-head);font-size:16px;font-weight:700;color:var(--pink)">~9.000</span></div>
+                <div style="font-size:11px;color:var(--muted);padding:6px 0;line-height:1.6">Dobrando a frequência de Reels, a meta de 9.000 seguidores pode ser atingida em aproximadamente 60 dias.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPARE -->
+      <div class="view" id="view-compare">
+        <div style="margin-bottom:18px"><div style="font-size:13px;color:var(--muted)">Comparativo de períodos acumulados até Mar 16, 2026</div></div>
+        <div class="compare-grid">
+          <div class="compare-card featured">
+            <div class="cc-period">Últimos 30 dias</div>
+            <div class="cc-views" style="color:#fff">46.337</div>
+            <div class="cc-sub">visualizações</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;text-align:left">
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px"><div style="font-size:10px;color:var(--muted)">Alcance</div><div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--pink)">9.871</div></div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px"><div style="font-size:10px;color:var(--muted)">Interações</div><div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--pink)">629</div></div>
+            </div>
+            <div class="cc-badge" style="background:rgba(239,193,55,0.2);color:var(--pink);border:1px solid rgba(239,193,55,0.3)">Período atual</div>
+          </div>
+          <div class="compare-card">
+            <div class="cc-period">Últimos 60 dias</div>
+            <div class="cc-views" style="color:var(--purple)">72.979</div>
+            <div class="cc-sub">visualizações</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;text-align:left">
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px"><div style="font-size:10px;color:var(--muted)">Alcance</div><div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--purple)">15.146</div></div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px"><div style="font-size:10px;color:var(--muted)">Interações</div><div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--purple)">992</div></div>
+            </div>
+            <div class="cc-badge" style="background:rgba(201,150,10,0.15);color:var(--purple);border:1px solid rgba(201,150,10,0.25)">Jan–Mar</div>
+          </div>
+          <div class="compare-card">
+            <div class="cc-period">Últimos 90 dias</div>
+            <div class="cc-views" style="color:var(--teal)">108.210</div>
+            <div class="cc-sub">visualizações</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;text-align:left">
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px"><div style="font-size:10px;color:var(--muted)">Alcance</div><div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--teal)">21.457</div></div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:8px;padding:8px"><div style="font-size:10px;color:var(--muted)">Interações</div><div style="font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--teal)">1.313</div></div>
+            </div>
+            <div class="cc-badge" style="background:rgba(239,193,55,0.1);color:var(--teal);border:1px solid rgba(239,193,55,0.2)">Dez–Mar</div>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="card-head"><div class="card-title">Crescimento acumulado de visualizações</div></div>
+          <div style="position:relative;height:220px"><canvas id="compareChart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- INSIGHTS -->
+      <div class="view" id="view-insights">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;padding:14px 16px;background:linear-gradient(90deg,rgba(239,193,55,0.08),rgba(201,150,10,0.06));border:1px solid rgba(239,193,55,0.2);border-radius:12px">
+          <div style="font-size:18px">✦</div>
+          <div><div style="font-size:13px;font-weight:500;color:#fff">Análise gerada por IA</div><div style="font-size:11px;color:var(--muted)">Baseada nos dados reais do Instagram Insights · Fev–Mar 2026</div></div>
+        </div>
+        <div class="insights-card">
+          <div class="insight-item"><div class="insight-num" style="background:rgba(239,193,55,0.12);color:var(--teal)">01</div><div><div class="insight-title">Crescimento expressivo de +73,9% nas visualizações</div><div class="insight-text">As visualizações saltaram de ~26.600 para 46.337 em 30 dias, com o alcance crescendo +45,8%. O conteúdo está ganhando tração orgânica real. Esse crescimento foi impulsionado principalmente por 1 Reel que performou excepcionalmente bem.</div></div></div>
+          <div class="insight-item"><div class="insight-num" style="background:rgba(239,193,55,0.12);color:var(--pink)">02</div><div><div class="insight-title">Reels são o principal motor de descoberta</div><div class="insight-text">O Reel sobre tomada de decisões gerou 5.785 views — 3,5× acima do segundo colocado. O formato Reel atinge 34,6% de não-seguidores, enquanto Stories e Posts atingem principalmente a base já consolidada. Dobrar a frequência de Reels é a alavanca mais eficiente para crescimento.</div></div></div>
+          <div class="insight-item"><div class="insight-num" style="background:rgba(201,150,10,0.12);color:var(--purple)">03</div><div><div class="insight-title">Stories dominam o engajamento da base existente</div><div class="insight-text">Com 59,6% de todas as interações, Stories são o canal de relacionamento profundo com seguidores. 91,3% das interações vêm de seguidores — isso indica alta fidelidade. Usar CTAs, perguntas, enquetes e bastidores nos Stories amplifica esse efeito.</div></div></div>
+          <div class="insight-item"><div class="insight-num" style="background:rgba(240,200,40,0.1);color:#efc137">04</div><div><div class="insight-title">Conteúdo de mentoria e liderança é o nicho de maior ressonância</div><div class="insight-text">Mentorias com Cresol Triunfo, treinamentos corporativos e conteúdos de liderança aparecem consistentemente entre os mais vistos. Esse é o posicionamento de maior autoridade do perfil — e o mais difícil de replicar por concorrentes.</div></div></div>
+          <div class="insight-item"><div class="insight-num" style="background:rgba(239,193,55,0.1);color:var(--teal)">05</div><div><div class="insight-title">Recomendações para Abril 2026</div><div class="insight-text">1) Aumentar Reels para 2–3x/semana com temas de liderança e decisão. 2) Criar série sobre bastidores de mentorias. 3) Usar Stories com CTAs diretos para aumentar respostas. 4) Meta: 9.000 seguidores e 60.000 visualizações no próximo ciclo de 30 dias.</div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const titles={overview:'Visão Geral',content:'Conteúdo',growth:'Crescimento',compare:'Comparativo',insights:'IA Insights'};
+function setView(id,el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  el.classList.add('active');
+  document.getElementById('topbar-title').textContent=titles[id];
+  setTimeout(()=>{animateBars();animateCounters();},50);
+}
+function animateCounters(){
+  document.querySelectorAll('.view.active .counter').forEach(el=>{
+    const target=parseInt(el.dataset.target);
+    const dur=1400;const start=Date.now();
+    const tick=()=>{const p=Math.min((Date.now()-start)/dur,1);const ease=1-Math.pow(1-p,4);el.textContent=Math.round(ease*target).toLocaleString('pt-BR');if(p<1)requestAnimationFrame(tick);};
+    tick();
+  });
+}
+function animateBars(){
+  document.querySelectorAll('.view.active .fmt-fill').forEach(el=>{el.style.width=el.dataset.w+'%';});
+  document.querySelectorAll('.view.active .post-bar-fill').forEach(el=>{el.style.width=el.dataset.w+'%';});
+}
+const posts=[
+  {title:'Como tomamos as melhores decisões',views:5785,type:'Reel'},
+  {title:'Story — bastidores do dia',views:1631,type:'Story'},
+  {title:'Mentoria Cresol Triunfo — São João do Triunfo, PR',views:1584,type:'Post'},
+  {title:'Foto com equipe de colaboradores',views:1485,type:'Post'},
+  {title:'Selfie no escritório com matcha',views:1437,type:'Post'},
+  {title:'Dia de Mentoria Premium de Liderança — Cresol Triunfo',views:1362,type:'Post'},
+  {title:'Reunião de equipe',views:1314,type:'Post'},
+  {title:'Treinamento Interno · Frimesa Cooperativa, Medianeira PR',views:861,type:'Story'},
+  {title:'O "dar branco" não é sobre azar...',views:758,type:'Post'},
+];
+const maxV=5785;
+document.getElementById('posts-list').innerHTML=posts.map((p,i)=>{
+  const tagClass={Reel:'tag-reel',Story:'tag-story',Post:'tag-post'}[p.type];
+  const pct=Math.round(p.views/maxV*100);
+  return `<div class="post-row"><div class="post-rank">${String(i+1).padStart(2,'0')}</div><div class="post-bar-wrap"><div class="post-title">${p.title}</div><div class="post-bar-bg"><div class="post-bar-fill" style="width:0%" data-w="${pct}"></div></div></div><div class="post-views">${p.views.toLocaleString('pt-BR')}</div><div class="post-tag ${tagClass}">${p.type}</div></div>`;
+}).join('');
+
+new Chart(document.getElementById('viewsChart'),{type:'bar',data:{labels:['30 dias\n(Fev–Mar)','60 dias\n(Jan–Mar)','90 dias\n(Dez–Mar)'],datasets:[{data:[46337,72979,108210],backgroundColor:['rgba(239,193,55,0.85)','rgba(201,150,10,0.6)','rgba(201,150,10,0.35)'],borderRadius:6,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('pt-BR')+' views'}}},scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#7a7060',font:{size:10}}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#7a7060',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v}}}}});
+
+new Chart(document.getElementById('engChart'),{type:'doughnut',data:{labels:['Stories','Reels','Posts'],datasets:[{data:[59.6,30.3,10.1],backgroundColor:['#efc137','#c9960a','#efc137'],borderWidth:0,hoverOffset:6}]},options:{responsive:true,maintainAspectRatio:false,cutout:'68%',plugins:{legend:{display:true,position:'bottom',labels:{color:'#7a7060',boxWidth:8,padding:12,font:{size:11}}},tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+'%'}}}}});
+
+const growthData=[-2,1,-3,2,3,-1,4,2,1,3,5,-1,3,7,4,2,3,8,12,-2,3,5,4,-3,2,4,3,1,-2,-4];
+new Chart(document.getElementById('growthChart'),{type:'line',data:{labels:growthData.map((_,i)=>{const d=new Date(2026,1,15+i);return d.getDate()+'/'+(d.getMonth()+1).toString().padStart(2,'0')}),datasets:[{data:growthData,borderColor:'#c9960a',borderWidth:2,backgroundColor:'rgba(201,150,10,0.08)',fill:true,tension:0.4,pointRadius:0,pointHoverRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>(c.parsed.y>0?'+':'')+c.parsed.y+' seguidores'}}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#7a7060',font:{size:9},maxRotation:0,maxTicksLimit:7}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#7a7060',font:{size:10}}}}}});
+
+new Chart(document.getElementById('compareChart'),{type:'bar',data:{labels:['30 dias (Fev–Mar)','60 dias (Jan–Mar)','90 dias (Dez–Mar)'],datasets:[{label:'Visualizações',data:[46337,72979,108210],backgroundColor:['rgba(239,193,55,0.8)','rgba(201,150,10,0.6)','rgba(201,150,10,0.35)'],borderRadius:6,borderWidth:0},{label:'Alcance',data:[9871,15146,21457],backgroundColor:['rgba(239,193,55,0.7)','rgba(239,193,55,0.45)','rgba(239,193,55,0.25)'],borderRadius:6,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'top',labels:{color:'#7a7060',boxWidth:10,padding:16,font:{size:11}}}},scales:{x:{grid:{color:'rgba(255,255,255,0.03)'},ticks:{color:'#7a7060',font:{size:11}}},y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#7a7060',font:{size:10},callback:v=>v>=1000?(v/1000).toFixed(0)+'K':v}}}}});
+
+setTimeout(()=>{animateCounters();animateBars();},300);
+</script>
+</body>
+</html>
